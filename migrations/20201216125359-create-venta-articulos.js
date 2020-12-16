@@ -9,12 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ventaId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+       
       },
       articuloId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        
       },
-      articulo: {
+      articulos: {
         type: Sequelize.STRING
       },
       cantidad: {

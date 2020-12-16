@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ingresoId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      
       },
       articuloId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        
       },
       articulo: {
         type: Sequelize.STRING

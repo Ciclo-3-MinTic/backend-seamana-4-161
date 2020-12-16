@@ -9,10 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       usuarioId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+          references: { // User belongsTo Company 1:1
+            model: 'Usuarios',
+            key: 'id'
+          }
       },
       personaId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+          references: { // User belongsTo Company 1:1
+            model: 'Personas',
+            key: 'id'
+          }
       },
       tipo_comprobante: {
         type: Sequelize.STRING
