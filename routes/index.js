@@ -5,6 +5,6 @@ const categoriaRouter = require('./articulo');
 
 const router = routerx();
 
-router.use('/articulo', articuloRouter);
+/* router.use('/articulo', articuloRouter); */
 
 module.exports = router;

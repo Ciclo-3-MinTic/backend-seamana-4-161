@@ -1,0 +1,31 @@
+User:
+
+    npx sequelize model:generate --name Usuario --attributes rol:string,nombre:string,password:string,email:string,tipo_documento:string,num_documento:string,direccion:string,telefono:string,estado:integer
+
+Persona:
+
+    npx sequelize model:generate --name Persona --attributes tipo_persona:string,nombre:string,tipo_documento:string,num_documento:string,direccion:string,telefono:string,email:string,estado:integer
+
+Categoria:
+
+    npx sequelize model:generate --name Categoria --attributes nombre:string,descripcion:string,estado:integer
+
+Articulo:
+
+    npx sequelize model:generate --name Articulo --attributes codigo:string,nombre:string,descripcion:string,precio_venta:integer,stock:integer,estado:integer,categoriaId:integer
+
+Venta:
+
+    npx sequelize model:create --name Venta --attributes usuarioId:integer,personaId:integer,tipo_comprobante:string,serie_comprobante:string,num_comprobante:string,impuesto:integer,total:integer,estado:integer
+
+VentaArticulo:
+
+    npx sequelize model:create --name VentaArticulos --attributes ventaId:integer,articuloId:integer,articulo:string,cantidad:integer,precio:integer,descuento:integer
+
+Ingreso:
+
+    npx sequelize model:create --name Ingreso --attributes usuarioId:integer,personaId:integer,tipo_comprobante:string,serie_comprobante:string,num_comprobante:string,impuesto:integer,total:integer,estado:integer
+
+IngresoArticulo:
+
+    npx sequelize model:create --name IngresoArticulos --attributes ingresoId:integer,articuloId:integer,articulo:string,cantidad:integer,precio:integer,descuento:integer
