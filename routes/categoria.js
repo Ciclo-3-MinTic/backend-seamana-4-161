@@ -2,7 +2,7 @@
 import categoriaController from '../controllers/CategoriaController';
 import auth from '../middlewares/auth'; */
 const routerx = require('express-promise-router');
-const categoriaController = require('../controllers/CategoriasController');
+const categoriaController = require('../controllers/CategoriaController');
 const auth = require('../middlewares/auth');
 
 

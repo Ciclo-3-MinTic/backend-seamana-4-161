@@ -16,7 +16,7 @@ module.exports = {
         try {
             const reg = await models.Categoria.findOne({
                 where: {
-                    id: req.query._id
+                    id: req.query.id
                 }
             });
             if (!reg) {
@@ -36,6 +36,7 @@ module.exports = {
 
     list: async (req, res, next) => {
         try {
+            let valor = req.query.valor;
             const reg = await models.Categoria.findAll();
             res.status(200).json(reg);
         } catch (e) {
@@ -52,7 +53,7 @@ module.exports = {
                 descripcion: req.body.descripcion
             }, {
                 where: {
-                    id: req.body._id
+                    id: req.body.id
                 }
             });
             res.status(200).json(reg);
@@ -65,12 +66,12 @@ module.exports = {
     },
     activate: async (req, res, next) => {
         try {
-            console.log(req.body._id);
+            console.log(req.body.id);
             const reg = await models.Categoria.update({
                 estado: 1
             }, {
                 where: {
-                    id: req.body._id
+                    id: req.body.id
                 }
             });
             res.status(200).json(reg);
@@ -87,7 +88,7 @@ module.exports = {
                 estado: 0
             }, {
                 where: {
-                    id: req.body._id
+                    id: req.body.id
                 }
             });
             res.status(200).json(reg);
@@ -102,7 +103,7 @@ module.exports = {
         try {
             const reg = await models.Categoria.destroy({
                 where: {
-                    _id: req.body._id
+                    _id: req.body.id
                 }
             });
             res.status(200).json(reg);
