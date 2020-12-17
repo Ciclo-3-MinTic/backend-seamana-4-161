@@ -7,7 +7,7 @@ module.exports = {
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
-                message: 'Ocurrió un error'
+                message: 'Error -> ' + e
             });
             next(e);
         }
@@ -28,7 +28,7 @@ module.exports = {
             }
         } catch (e) {
             res.status(500).send({
-                message: 'Ocurrió un error'
+                message: 'Error -> ' + e
             });
             next(e);
         }
@@ -40,7 +40,7 @@ module.exports = {
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
-                message: 'Ocurrió un error'
+                message: 'Error -> ' + e
             });
             next(e);
         }
@@ -58,7 +58,7 @@ module.exports = {
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
-                message: 'Ocurrió un error'
+                message: 'Error -> ' + e
             });
             next(e);
         }
@@ -76,7 +76,7 @@ module.exports = {
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
-                message: 'Ocurrió un error'
+                message: 'Error -> ' + e
             });
             next(e);
         }
@@ -93,7 +93,7 @@ module.exports = {
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
-                message: 'Ocurrió un error'
+                message: 'Error -> ' + e
             });
             next(e);
         }
@@ -108,7 +108,7 @@ module.exports = {
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
-                message: 'Ocurrió un error'
+                message: 'Error -> ' + e
             });
             next(e);
         }
