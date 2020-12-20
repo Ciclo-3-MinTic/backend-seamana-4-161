@@ -76,7 +76,7 @@ module.exports = {
     },
     update: async (req, res, next) => {
         try {
-            console.log(req.body);
+            
             const reg = await models.Articulo.update({
                 categoriaId: req.body.categoria,
                 codigo: req.body.codigo,

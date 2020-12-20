@@ -66,7 +66,7 @@ module.exports = {
     },
     activate: async (req, res, next) => {
         try {
-            console.log(req.body.id);
+            
             const reg = await models.Categoria.update({
                 estado: 1
             }, {

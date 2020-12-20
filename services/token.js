@@ -11,7 +11,7 @@ async function checkToken(token) {
     } catch (e) {
         return false;
     }
-    console.log(id);
+    
     const user = await models.Usuario.findOne({
         where: {
             id: id,
@@ -36,11 +36,13 @@ async function checkToken(token) {
 module.exports = {
 
     //generar el token
-    encode: async (id, rol) => {
-        console.log(rol);
+    encode: async (id, rol,nombre,email) => {
+        
         const token = jwt.sign({
             id: id,
-            rol: rol
+            rol: rol,
+            nombre: nombre,
+            email: email
         }, 'secretKeyToGenerateToken', {
             expiresIn: '1d'
         });
