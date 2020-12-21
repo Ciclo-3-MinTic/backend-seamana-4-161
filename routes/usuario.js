@@ -12,6 +12,7 @@ router.put('/update', auth.verifyUsuario, usuarioController.update);
 router.delete('/remove', auth.verifyUsuario, usuarioController.remove);
 router.put('/activate', auth.verifyUsuario, usuarioController.activate);
 router.put('/deactivate', auth.verifyUsuario, usuarioController.deactivate);
+router.get('/describe', auth.verifyUsuario, usuarioController.describe);
 router.post('/login', usuarioController.login);
 
 module.exports = router;
