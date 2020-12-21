@@ -77,14 +77,7 @@ module.exports = {
     update: async (req, res, next) => {
         try {
             
-            const reg = await models.Articulo.update({
-                categoriaId: req.body.categoria,
-                codigo: req.body.codigo,
-                nombre: req.body.nombre,
-                descripcion: req.body.descripcion,
-                precio_venta: req.body.precio_venta,
-                stock: req.body.stock
-            }, {
+            const reg = await models.Articulo.update(req.body, {
                 where: {
                     id: req.body.id
                 }
