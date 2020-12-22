@@ -179,6 +179,24 @@ module.exports = {
             next(e);
         }
     },
+    listTypeDocumento: async (req, res, next) => {
+        try {
+
+            res.status(200).send([
+                'Cédula de ciudadanía',
+                'Tarjeta de identidad',
+                'Cédula de extranjería',
+                'Pasaport',
+                'Registro Civil'
+            ]);
+
+        } catch (e) {
+            res.status(500).send({
+                message: 'Error -> ' + e
+            });
+            next(e);
+        }
+    },
     update: async (req, res, next) => {
         try {
             let pas = req.body.password;
