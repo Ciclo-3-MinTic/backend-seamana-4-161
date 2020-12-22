@@ -13,6 +13,9 @@ router.delete('/remove', auth.verifyAdministrador, usuarioController.remove);
 router.put('/activate', auth.verifyAdministrador, usuarioController.activate);
 router.put('/deactivate', auth.verifyAdministrador, usuarioController.deactivate);
 router.get('/describe', auth.verifyUsuario, usuarioController.describe);
-router.post('/login', usuarioController.login);
+
+router.post('/login',  usuarioController.login);
+
+router.get('/listRoles', auth.verifyUsuario, usuarioController.listRoles);
 
 module.exports = router;

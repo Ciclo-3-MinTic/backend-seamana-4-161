@@ -16,9 +16,9 @@ module.exports = {
                 let match = await bcrypt.compare(req.body.password, user.password);
 
                 if (match) {
-                    
+
                     let tokenReturn = await token.encode(user.id, user.rol, user.nombre, user.email);
-                    
+
                     res.status(200).json({
                         user,
                         tokenReturn
@@ -87,7 +87,98 @@ module.exports = {
             next(e);
         }
     },
-   
+
+    listRoles: async (req, res, next) => {
+        try {
+
+            res.status(200).json({
+                Administrador: {
+                    usuarios: {
+                        list: true,
+                        add: true,
+                        edit: true,
+                        active: true
+                    },
+                    categorias: {
+                        list: true,
+                        add: true,
+                        edit: true,
+                        active: true
+                    },
+                    articulos: {
+                        list: true,
+                        add: true,
+                        edit: true,
+                        active: true
+                    }
+
+                },
+                Almacenero: {
+                    usuarios: {
+                        list: false,
+                        add: false,
+                        edit: false,
+                        active: false
+                    },
+                    categorias: {
+                        list: true,
+                        add: true,
+                        edit: true,
+                        active: true
+                    },
+                    articulos: {
+                        list: true,
+                        add: true,
+                        edit: true,
+                        active: true
+                    }
+                },
+                Vendedor: {
+                    usuarios: {
+                        list: false,
+                        add: false,
+                        edit: false,
+                        active: false
+                    },
+                    categorias: {
+                        list: true,
+                        add: false,
+                        edit: false,
+                        active: false
+                    },
+                    articulos: {
+                        list: true,
+                        add: false,
+                        edit: false,
+                        active: true
+                    }
+
+                }
+            });
+
+        } catch (e) {
+            res.status(500).send({
+                message: 'Error -> ' + e
+            });
+            next(e);
+        }
+    },
+    listTypeRoles: async (req, res, next) => {
+        try {
+
+            res.status(200).send([
+                'Administrador',
+                'Almacenero',
+                'Vendedor',
+            ]);
+
+        } catch (e) {
+            res.status(500).send({
+                message: 'Error -> ' + e
+            });
+            next(e);
+        }
+    },
     update: async (req, res, next) => {
         try {
             let pas = req.body.password;
@@ -160,19 +251,19 @@ module.exports = {
         }
     },
 
-     describe: async (req, res, next) => {
-         try {
-             let valor = req.query.valor;
-             const reg = await models.Usuario.describe();
-             res.status(200).json(reg);
+    describe: async (req, res, next) => {
+        try {
+            let valor = req.query.valor;
+            const reg = await models.Usuario.describe();
+            res.status(200).json(reg);
 
-         } catch (e) {
-             res.status(500).send({
-                 message: 'Error -> ' + e
-             });
-             next(e);
-         }
-     }
+        } catch (e) {
+            res.status(500).send({
+                message: 'Error -> ' + e
+            });
+            next(e);
+        }
+    }
 }
 
 /* exports.login =  (req, res) => {
