@@ -6,6 +6,7 @@ const auth = require('../middlewares/auth');
 const router = routerx();
 
 router.get('/list', articuloController.list);
+router.get('/listByCategorias', articuloController.listByCategorias);
 
 router.post('/add', auth.verifyUsuario, articuloController.add);
 router.get('/query', auth.verifyUsuario, articuloController.query);
