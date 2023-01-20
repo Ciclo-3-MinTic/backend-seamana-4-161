@@ -90,7 +90,6 @@ module.exports = {
 
     listRoles: async (req, res, next) => {
         try {
-
             res.status(200).json({
                 Administrador: {
                     usuarios: {
@@ -110,7 +109,13 @@ module.exports = {
                         add: true,
                         edit: true,
                         active: true
-                    }
+                    },
+                    alertas: {
+                        list: true,
+                        add: false,
+                        edit: true,
+                        active: true
+                    },
 
                 },
                 Almacenero: {
@@ -131,7 +136,13 @@ module.exports = {
                         add: true,
                         edit: true,
                         active: true
-                    }
+                    },
+                    alertas: {
+                        list: true,
+                        add: false,
+                        edit: true,
+                        active: true
+                    },
                 },
                 Vendedor: {
                     usuarios: {
@@ -151,7 +162,13 @@ module.exports = {
                         add: false,
                         edit: false,
                         active: true
-                    }
+                    },
+                    alertas: {
+                        list: false,
+                        add: false,
+                        edit: false,
+                        active: false
+                    },
 
                 }
             });
@@ -283,42 +300,3 @@ module.exports = {
         }
     }
 }
-
-/* exports.login =  (req, res) => {
-    db.Usuario.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(user => {
-        if (!user) {
-            return res.status(404).send('User Not Found.');
-        }
-        var passwordIsValid = bcrypt.compareSync(req.body.password,
-            user.password);
-        console.log(passwordIsValid);
-        
-        if (!passwordIsValid) {
-            return res.status(401).send({
-                auth: false,
-                accessToken: null,
-                reason: "Invalid Password!"
-            });
-        } else {
-            var tokenReturn = jwt.sign({
-                id: user.id,
-                name: user.name,
-                email: user.email
-            }, config.secret, {
-                expiresIn: 86400 // expires in 24 hours
-            });
-            res.status(200).json({
-                user,
-                tokenReturn
-            })
-
-        }
-
-    }).catch(err => {
-        res.status(500).send('Error -> ' + err);
-    });
-} */
