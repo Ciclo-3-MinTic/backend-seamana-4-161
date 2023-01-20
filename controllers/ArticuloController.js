@@ -79,7 +79,7 @@ module.exports = {
       let result = [];
 
       const categorias = await models.Categoria.findAll({
-        attributes: ["id", "nombre", "descripcion", "estado", "img"],
+        attributes: ["id", "nombre", "descripcion", "estado"],
       });
 
       for (const item of categorias) {
@@ -94,6 +94,7 @@ module.exports = {
           categoriaId: item.id,
           descripcion: item.descripcion,
           estado: item.estado,
+          img: item.img,
           articulos: temp,
         });
       }
