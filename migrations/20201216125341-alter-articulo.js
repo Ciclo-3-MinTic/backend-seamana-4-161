@@ -1,13 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('Articulos', 'img', {
-
-      type: Sequelize.STRING
-
-    });
-  },
+  up: async (queryInterface, Sequelize) => {},
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Articulos');
-  }
+    await queryInterface.dropTable("Articulos");
+  },
 };

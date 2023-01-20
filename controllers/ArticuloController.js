@@ -88,13 +88,11 @@ module.exports = {
             categoriaId: item.id,
           },
         });
-
         result.push({
           nombre: item.nombre,
           categoriaId: item.id,
           descripcion: item.descripcion,
           estado: item.estado,
-          img: item.img,
           articulos: temp,
         });
       }

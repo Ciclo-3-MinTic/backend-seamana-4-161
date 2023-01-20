@@ -1,50 +1,54 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Articulos', {
+    await queryInterface.createTable("Articulos", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       codigo: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       nombre: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       descripcion: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       precio_venta: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       stock: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       estado: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      },
+      img: {
+        type: Sequelize.STRING,
       },
       categoriaId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { // User belongsTo Company 1:1
-          model: 'Categoria',
-          key: 'id'
-        }
+        references: {
+          // User belongsTo Company 1:1
+          model: "Categoria",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Articulos');
-  }
+    await queryInterface.dropTable("Articulos");
+  },
 };

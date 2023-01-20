@@ -18,7 +18,6 @@ if (config.use_env_variable) {
     config.password,
     config
   );
-  console.log(sequelize);
 }
 
 fs.readdirSync(__dirname)
