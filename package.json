@@ -11,7 +11,7 @@
         "test": "cross-env NODE_ENV=test jest  --forceExit --json",
         "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
         "dev": "nodemon index.js",
-        "seed": "npx sequelize-cli db:seed:all"
+        "migrate:seed": "npx sequelize-cli db:seed:all"
     },
     "jest": {
         "testEnvironment": "node",
